@@ -13,7 +13,7 @@ public class Main {
             "synchronized", "volatile", "const", "goto", "instanceof", "enum", "assert", "transient", "strictfp"};
 
     public static void main(String[] args) {
-        String fileContent = ""; //
+        String fileContent = "";
 
         try (FileInputStream fileInputStream = new FileInputStream("src/files/JavaCode.txt");
              BufferedInputStream bufferedInputStream = new BufferedInputStream(fileInputStream)) {
