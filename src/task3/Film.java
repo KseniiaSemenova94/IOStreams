@@ -4,7 +4,7 @@ import java.io.Serializable;
 import java.util.List;
 
 public class Film implements Serializable {
-    private String title;
+    private String title; //
 
     private List<String> actors;
 

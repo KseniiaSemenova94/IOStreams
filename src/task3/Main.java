@@ -7,7 +7,7 @@ import java.util.List;
 public class Main implements Serializable {
 
     private static BufferedReader reader = null;
-    private static Integer action = null;
+    private static Integer action = null; //
     private static List<Film> filmsList = null;
     private static final long serialVersionUID = 1L;
 
