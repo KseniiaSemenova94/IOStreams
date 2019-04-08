@@ -1,4 +1,4 @@
-package task1;
+package task2;
 
 import java.io.*;
 import java.util.HashMap;
@@ -15,24 +15,18 @@ public class Main {
     public static void main(String[] args) {
         String fileContent = "";
 
-        try (FileInputStream fileInputStream = new FileInputStream("src/files/JavaCode.txt");
-             BufferedInputStream bufferedInputStream = new BufferedInputStream(fileInputStream)) {
-            byte[] contents = new byte[1024];
-            int bytesRead;
-
-            while ((bytesRead = bufferedInputStream.read(contents)) != -1) {
-                fileContent = fileContent.concat(new String(contents, 0, bytesRead));
-
+        try (BufferedReader bufferedReader = new BufferedReader(new FileReader("src/files/JavaCode.txt"))) {
+            String s;
+            while((s = bufferedReader.readLine())!= null){
+                fileContent = fileContent.concat(s);
             }
-
         } catch (FileNotFoundException e) {
             System.out.println("File not found " + e);
         } catch (IOException ioe) {
             System.out.println("Exception while reading file " + ioe);
         }
 
-        fileContent = fileContent.replaceAll("\".*?\"", ""); // Удаляю возможное содержимое строк
-        // Далее отделяю ключевые слова от сопутсвующих символов, чтобы они не мешали последующему сравнению
+        fileContent = fileContent.replaceAll("\".*?\"", "");
         Pattern pattern = Pattern.compile("\\s*(\\s|;|:|\\.|\\(|\\)|\\{|\\}|\\]|\\[)\\s*");
         String[] words = pattern.split(fileContent);
 
@@ -54,10 +48,8 @@ public class Main {
             }
         }
 
-        try (FileOutputStream fileOutputStream = new FileOutputStream("src/files/ResultTask1.txt", false);
-             BufferedOutputStream bufferedOutputStream = new BufferedOutputStream(fileOutputStream)) {
-            byte[] buffer = result.toString().getBytes();
-            bufferedOutputStream.write(buffer, 0, buffer.length);
+        try (BufferedWriter bufferedWriter = new BufferedWriter(new FileWriter("src/files/ResultTask2.txt"))) {
+            bufferedWriter.write(result.toString());
         } catch (FileNotFoundException e) {
             System.out.println("File not found " + e);
         } catch (IOException ioe) {
