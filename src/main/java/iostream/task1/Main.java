@@ -1,4 +1,4 @@
-package task1;
+package iostream.task1;
 
 import java.io.*;
 import java.util.HashMap;
@@ -15,7 +15,7 @@ public class Main {
     public static void main(String[] args) {
         String fileContent = "";
 
-        try (FileInputStream fileInputStream = new FileInputStream("src/files/JavaCode.txt");
+        try (FileInputStream fileInputStream = new FileInputStream("src/main/java/iostream/files/JavaCode.txt");
              BufferedInputStream bufferedInputStream = new BufferedInputStream(fileInputStream)) {
             byte[] contents = new byte[1024];
             int bytesRead;
@@ -54,7 +54,8 @@ public class Main {
             }
         }
 
-        try (FileOutputStream fileOutputStream = new FileOutputStream("src/files/ResultTask1.txt", false);
+        try (FileOutputStream fileOutputStream =
+                     new FileOutputStream("src/main/java/iostream/files/ResultTask1.txt", false);
              BufferedOutputStream bufferedOutputStream = new BufferedOutputStream(fileOutputStream)) {
             byte[] buffer = result.toString().getBytes();
             bufferedOutputStream.write(buffer, 0, buffer.length);

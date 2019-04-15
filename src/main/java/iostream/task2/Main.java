@@ -1,4 +1,4 @@
-package task2;
+package iostream.task2;
 
 import java.io.*;
 import java.util.HashMap;
@@ -15,7 +15,7 @@ public class Main {
     public static void main(String[] args) {
         String fileContent = "";
 
-        try (BufferedReader bufferedReader = new BufferedReader(new FileReader("src/files/JavaCode.txt"))) {
+        try (BufferedReader bufferedReader = new BufferedReader(new FileReader("src/main.java.iostream.files/JavaCode.txt"))) {
             String s;
             while((s = bufferedReader.readLine())!= null){
                 fileContent = fileContent.concat(s);
@@ -48,7 +48,8 @@ public class Main {
             }
         }
 
-        try (BufferedWriter bufferedWriter = new BufferedWriter(new FileWriter("src/files/ResultTask2.txt"))) {
+        try (BufferedWriter bufferedWriter = new BufferedWriter(
+                new FileWriter("src/main/java/iostream/files/ResultTask2.txt"))) {
             bufferedWriter.write(result.toString());
         } catch (FileNotFoundException e) {
             System.out.println("File not found " + e);

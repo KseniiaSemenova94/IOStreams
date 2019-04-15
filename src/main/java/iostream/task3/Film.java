@@ -1,4 +1,4 @@
-package task3;
+package iostream.task3;
 
 import java.io.Serializable;
 import java.util.List;

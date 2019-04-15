@@ -1,0 +1,1 @@
+{static=1, void=1, public=1}

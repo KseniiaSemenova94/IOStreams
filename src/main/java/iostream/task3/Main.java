@@ -1,4 +1,4 @@
-package task3;
+package iostream.task3;
 
 import java.io.*;
 import java.util.ArrayList;
@@ -13,7 +13,8 @@ public class Main implements Serializable {
 
     public static void main(String[] args) throws IOException {
         filmsList = new ArrayList<>();
-        try(ObjectInputStream ois = new ObjectInputStream(new FileInputStream("src/files/FilmCollection.txt")))
+        try(ObjectInputStream ois = new ObjectInputStream(
+                new FileInputStream("src/main/java/iostream/files/FilmCollection.txt")))
         {
             filmsList = (ArrayList<Film>)ois.readObject();
         }
@@ -56,7 +57,8 @@ public class Main implements Serializable {
         } while (action == null || action != 5);
         reader.close();
 
-        try(ObjectOutputStream oos = new ObjectOutputStream(new FileOutputStream("src/files/FilmCollection.txt")))
+        try(ObjectOutputStream oos = new ObjectOutputStream(
+                new FileOutputStream("src/main/java/iostream/files/FilmCollection.txt")))
         {
             oos.writeObject(filmsList);
         }
