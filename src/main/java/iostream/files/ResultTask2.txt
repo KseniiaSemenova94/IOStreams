@@ -1,1 +1,1 @@
-{new=4, private=8, package=1, static=9, void=5, import=4, break=2, do=4, throws=5, while=4, int=1, public=2, else=6, try=1, catch=1, class=1, if=12, return=2}
+{static=1, void=1, public=1}
