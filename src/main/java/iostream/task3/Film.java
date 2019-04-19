@@ -10,7 +10,7 @@ public class Film implements Serializable {
 
     private static final long serialVersionUID = 1L;
 
-    Film (String title, List<String> actors) {
+    public Film (String title, List<String> actors) {
         this.title = title;
         this.actors = actors;
     }
