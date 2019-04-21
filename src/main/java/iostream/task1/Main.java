@@ -3,8 +3,7 @@ package iostream.task1;
 import iostream.Util;
 
 import java.io.*;
-import java.util.HashMap;
-import java.util.Map;
+import java.util.*;
 
 import static iostream.Util.KEYWORDS;
 
@@ -28,13 +27,9 @@ public class Main {
 
         String[] words = Util.formatFileContent(fileContent);
 
-        Map<String, String> keywordsMap = new HashMap<>();
+        Set<String> keywordsSet = new HashSet<>(Arrays.asList(KEYWORDS));
 
-        for (String word : KEYWORDS) {
-            keywordsMap.put(word, word);
-        }
-
-        Map<String, Integer> result = Util.getSameWordsAmount(words, keywordsMap);
+        Map<String, Integer> result = Util.getSameWordsAmount(words, keywordsSet);
 
         try (FileOutputStream fileOutputStream = new FileOutputStream(OUTPUT_FILE_PATH, false);
              BufferedOutputStream bufferedOutputStream = new BufferedOutputStream(fileOutputStream)) {

@@ -8,7 +8,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class FilmTask {
-    public static ArrayList<Film> restoreFilmCollection(String filePath) {
+    public static List<Film> restoreFilmCollection(String filePath) {
         try (ObjectInputStream ois = new ObjectInputStream(
                 new FileInputStream(filePath))) {
             return (ArrayList<Film>) ois.readObject();

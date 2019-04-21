@@ -2,6 +2,7 @@ package iostream;
 
 import java.util.HashMap;
 import java.util.Map;
+import java.util.Set;
 import java.util.regex.Pattern;
 
 abstract public class Util {
@@ -18,10 +19,10 @@ abstract public class Util {
         return pattern.split(result);
     }
 
-    public static Map<String, Integer> getSameWordsAmount(String[] words, Map<String, String> keywords) {
+    public static Map<String, Integer> getSameWordsAmount(String[] words, Set<String> keywords) {
         Map<String, Integer> result = new HashMap<>();
         for (String word : words) {
-            if (keywords.containsKey(word)) {
+            if (keywords.contains(word)) {
                 if (result.containsKey(word)) {
                     result.put(word, result.get(word) + 1);
                 } else {
